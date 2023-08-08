@@ -1,0 +1,101 @@
+.container {
+    min-height: 100vh;
+    height: 100%;
+    width: 100%;
+    background: linear-gradient(to right bottom, lavender, lightblue);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .form {
+    background-color: lavender;
+    box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    padding: 30px;
+    width: fit-content;
+    min-width: 380px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .smallLink {
+    position: absolute;
+    left: 0%;
+    top: -22px;
+  }
+  
+  .smallLink a {
+    color: navy;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 0.95rem;
+    text-decoration: none;
+  }
+
+  .smallLink :hover{
+    color: rgb(32, 66, 150);
+  }
+  
+  .form .heading {
+    font-weight: bold;
+    font-size: 1.6rem;
+  }
+  
+  .form button {
+    border: none;
+    outline: none;
+    padding: 8px 16px;
+    background-color: navy;
+    color: lightblue;
+    border-radius: 5px;
+    width: 100%;
+    text-align: center;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: 200ms;
+    display: flex;
+    gap: 5px;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .form button:hover {
+    background-color: rgb(32, 66, 150);
+  }
+  
+  .form button:active {
+    transform: translateY(1px);
+  }
+  
+  .form button:disabled {
+    background-color: gray !important;
+  }
+  
+  .form .error {
+    font-size: 0.875rem;
+    font-weight: bold;
+    color: #f12929;
+    width: 100%;
+    text-align: center;
+  }
+  
+  .form .bottom p {
+    width: 100%;
+    text-align: center;
+    font-size: 1rem;
+    font-weight: 500;
+  }
+  
+  .bottom p a {
+    color: navy;
+    font-weight: 600;
+    text-decoration: underline;
+    cursor: pointer;
+  }
+
+  .bottom p :hover{
+    color: rgb(32, 66, 150);
+  }
