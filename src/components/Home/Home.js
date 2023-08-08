@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { ArrowRight } from "react-feather";
 import { useNavigate } from "react-router-dom";
 import ProjectModal from "./ProjectModal/ProjectModal";
-import designerIcon from "../../assets/VA.png";
+import designerIcon from "../../assets/PM.png";
 import { getAllProjects, getAllProjectsForUser } from "../../Firebase";
 import styles from "./Home.module.css";
 
