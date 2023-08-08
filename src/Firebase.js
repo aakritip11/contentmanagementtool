@@ -3,7 +3,7 @@ import { getAuth } from "firebase/auth";
 import { doc, getFirestore, setDoc, getDoc, addDoc, collection, getDocs, query, where, deleteDoc } from "firebase/firestore";
 import { getDownloadURL, getStorage, ref, uploadBytesResumable } from "firebase/storage";
 
-// add your firebaseConfig
+// add your firebaseConfig{}
   
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
