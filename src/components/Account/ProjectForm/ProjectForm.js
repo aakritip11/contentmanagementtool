@@ -135,7 +135,7 @@ function ProjectForm(props) {
               />
               {imageUploadStarted && (
                 <p>
-                  <span>{imageUploadProgress.toFixed(2)}%</span> Uploaded
+                  <span>{imageUploadProgress.toFixed(2)}% Uploaded</span> 
                 </p>
               )}
             </div>

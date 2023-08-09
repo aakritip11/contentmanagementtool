@@ -1,5 +1,7 @@
 .container {
-    background: lavender;
+    background-image: url("../../../assets/conf1.jpg"); 
+    background-size: cover;
+    background-position: center;
     min-width: 700px;
     padding: 30px;
     display: flex;
@@ -47,8 +49,9 @@
   
   .left .image p span {
     font-weight: bold;
-    font-size: 0.875rem;
+    font-size: 0.9rem;
     letter-spacing: 1px;
+    color: rgb(243, 72, 189);
   }
   
   .right .description,
@@ -64,20 +67,20 @@
     align-items: center;
   }
   .description .title {
-    font-weight: 500;
-    color: #252525;
-    font-size: 0.9rem;
+    font-weight: 700;
+    color: lightpink;
+    font-size: 1.2rem;
   }
   
   .description .link {
-    color: navy;
-    font-weight: bold;
-    font-size: 0.875rem;
+    color: lightpink;
+    font-weight: 600;
+    font-size: 1.1rem;
     cursor: pointer;
   }
 
   .description .link:hover{
-    color: rgb(32, 66, 150);
+    color: rgb(243, 72, 189);
   }
   
   .description .inputs .input {
@@ -95,6 +98,7 @@
     cursor: pointer;
     color: lightblue;
   }
+
   .footer {
     display: flex;
     gap: 20px;
@@ -104,19 +108,19 @@
   
   .footer .cancel {
     font-size: 1rem;
-    font-size: 500;
-    color: navy;
+    font-weight: 600;
+    color: lightpink;
     transition: 200ms;
     cursor: pointer;
   }
   .footer .cancel:hover {
-    color: rgb(32, 66, 150);
+    color: rgb(243, 72, 189);
   }
   
   .error {
-    font-size: 0.875rem;
-    font-weight: bold;
-    color: rgb(243, 80, 59);
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: rgb(243, 72, 189);
     text-align: center;
     width: 100%;
   }
@@ -125,11 +129,12 @@
     border: none;
     outline: none;
     padding: 10px 16px;
-    background-color: navy;
-    color: lightblue;
+    background-color: lightpink;
+    color: navy;
     border-radius: 5px;
     width: fit-content;
     font-size: 0.9rem;
+    font-weight: 600;
     cursor: pointer;
     transition: 200ms;
     display: flex;
@@ -138,5 +143,5 @@
   }
   
   .button:hover {
-    background-color: rgb(32, 66, 150);
+    background-color: rgb(243, 72, 189);
   }

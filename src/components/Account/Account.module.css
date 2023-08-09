@@ -1,6 +1,8 @@
 .container {
-  height: 100vh;
-    background-color: lavender;
+    height: 100vh;
+    background-image: url("../../assets/conf.jpg"); 
+    background-size: cover;
+    background-position: center;
     display: flex;
     flex-direction: column;
     gap: 20px;
@@ -8,7 +10,7 @@
   
   .header {
     width: 100%;
-    background: linear-gradient(to right bottom, lavender, lightblue);
+    background: linear-gradient(to right bottom, rgb(3, 4, 56), rgb(227, 37, 164));
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -24,7 +26,7 @@
   }
 
   .header .heading span {
-    color: navy;
+    color: white;
     font-size: 1.8rem;
     text-transform: capitalize;
     padding-left: 1.2%;
@@ -35,24 +37,21 @@
     align-items: center;
     gap: 5px;
     cursor: pointer;
+    color: white;
+    font-weight: 700;
+    font-size: 1.2rem;
+    transition: 200ms;
   }
-  
+
   .header .logout svg {
     height: 18px;
     width: 18px;
     transition: 200ms;
   }
   
-  .header .logout {
-    color: navy;
-    font-weight: 700;
-    font-size: 1.2rem;
-    transition: 200ms;
-  }
-  
   .header .logout:hover,
   .header .logout:hover svg {
-    color: rgb(32, 66, 150);
+    color: rgb(243, 72, 189);
   }
   
   .container .section {
@@ -60,6 +59,7 @@
     flex-direction: column;
     gap: 20px;
     padding: 20px 30px;
+    color: lightpink;
   }
   
   .section .title {
@@ -92,8 +92,8 @@
     height: 200px;
     width: 200px;
     border-radius: 50%;
-    box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.2);
-    border: 1px solid lavender;
+    box-shadow: 3px 3px 9px lightpink;
+    border: 1px solid lightpink;
   }
   
   .profile .left .image img {
@@ -107,7 +107,7 @@
     position: absolute;
     right: 5px;
     top: 5px;
-    background-color: #fff;
+    background-color: lightpink;
     border-radius: 50%;
     padding: 8px;
     z-index: 10;
@@ -139,7 +139,7 @@
     gap: 30px;
     align-items: center;
   }
-  
+
   .profile .right .row > div {
     flex: 1;
   }
@@ -153,11 +153,12 @@
     border: none;
     outline: none;
     padding: 10px 16px;
-    background-color: navy;
-    color: lightblue;
+    background-color: lightpink;
+    color: navy;
     border-radius: 5px;
     width: fit-content;
     font-size: 0.9rem;
+    font-weight: 600;
     cursor: pointer;
     transition: 200ms;
     display: flex;
@@ -166,14 +167,14 @@
   }
 
   .button:hover{
-    background: rgb(32, 66, 150);
+    background-color: rgb(243, 72, 189);
   }
   
   .footer .error {
     flex: 1;
     font-size: 0.875rem;
     font-weight: bold;
-    color: #ff3511;
+    color: rgb(243, 72, 189);
     width: 100%;
     text-align: center;
   }
@@ -195,13 +196,14 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
+    background-color: rgb(3, 3, 39);
+    box-shadow: 3px 3px 9px lightpink;
     padding: 10px;
   }
   
   .project .title {
     font-size: 1.1rem;
-    font-weight: 500;
+    font-weight: 700;
     letter-spacing: 0.5px;
   }
   
@@ -214,11 +216,11 @@
   .project .links svg {
     height: 22px;
     width: 22px;
-    color: rgb(59, 59, 59);
+    color: lightpink;
     transition: 200ms;
     cursor: pointer;
   }
   
   .project .links svg:hover {
-    color: lightblue;
+    color: rgb(243, 72, 189);
   }

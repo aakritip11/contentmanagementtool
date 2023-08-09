@@ -5,14 +5,14 @@
   }
   
   .container label {
-    font-weight: 500;
-    color: #252525;
-    font-size: 0.9rem;
+    font-weight: 700;
+    color:lightpink;
+    font-size: 1.2rem;
   }
   
   .container input {
     width: 100%;
-    border: 1px solid lavender;
+    border: 1px solid lightpink;
     border-radius: 5px;
     padding: 8px 10px;
     outline: none;
@@ -22,11 +22,11 @@
   }
   
   .container input:hover {
-    border: 1px solid lavender;
+    border: 1px solid lightpink;
   }
   
   .container input:focus {
-    border: 1px solid lightskyblue;
+    border: 1px solid rgb(243, 72, 189);
   }
   
   .inputContainer {
@@ -34,10 +34,10 @@
   }
   
   .inputContainer:hover .icon svg {
-    color: lightblue;
+    color: rgb(243, 72, 189);
   }
   .inputContainer:focus-within .icon svg {
-    color: lightblue;
+    color: rgb(243, 72, 189);
   }
   .inputContainer .icon {
     position: absolute;
@@ -52,5 +52,5 @@
   .inputContainer .icon svg {
     height: 15px;
     width: 15px;
-    color: lightblue;
+    color: lightpink;
   }

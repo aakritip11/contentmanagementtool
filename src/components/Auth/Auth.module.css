@@ -2,15 +2,45 @@
     min-height: 100vh;
     height: 100%;
     width: 100%;
-    background: linear-gradient(to right bottom, lavender, lightblue);
+    background-image: url("../../assets/conf.jpg"); 
+    background-size: cover;
+    background-position: center;
     display: flex;
     justify-content: center;
     align-items: center;
   }
   
+  .back {
+    position: absolute;
+    top: 70px;
+    left: 20px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    padding-top: 7px;
+    color: lightpink;
+  }
+
+  .back :hover{
+    color: rgb(243, 72, 189);
+  }
+  
+  .backarrow {
+    font-size: 1.3rem;
+  }
+  
+  .backtext {
+    font-weight: 600;
+    font-size: 1.3rem;
+  }
+
   .form {
-    background-color: lavender;
-    box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.2);
+    background-image: url("../../assets/conf1.jpg"); 
+    background-size: cover;
+    background-position: center;
+    color: rgb(243, 72, 189);
+    box-shadow: 3px 3px 9px lightpink;
     border-radius: 5px;
     padding: 30px;
     width: fit-content;
@@ -28,7 +58,7 @@
   }
   
   .smallLink a {
-    color: navy;
+    color: lightpink;
     font-weight: bold;
     cursor: pointer;
     font-size: 0.95rem;
@@ -36,7 +66,7 @@
   }
 
   .smallLink :hover{
-    color: rgb(32, 66, 150);
+    color: rgb(243, 72, 189);
   }
   
   .form .heading {
@@ -48,12 +78,13 @@
     border: none;
     outline: none;
     padding: 8px 16px;
-    background-color: navy;
-    color: lightblue;
+    background-color: lightpink;
+    color: navy;
     border-radius: 5px;
     width: 100%;
     text-align: center;
-    font-size: 1rem;
+    font-size: 1.1rem;
+    font-weight: 600;
     cursor: pointer;
     transition: 200ms;
     display: flex;
@@ -63,7 +94,7 @@
   }
   
   .form button:hover {
-    background-color: rgb(32, 66, 150);
+    background-color: rgb(243, 72, 189);
   }
   
   .form button:active {
@@ -71,13 +102,13 @@
   }
   
   .form button:disabled {
-    background-color: gray !important;
+    background-color: rgb(243, 72, 189) !important;
   }
   
   .form .error {
     font-size: 0.875rem;
     font-weight: bold;
-    color: #f12929;
+    color: rgb(243, 72, 189);
     width: 100%;
     text-align: center;
   }
@@ -90,12 +121,12 @@
   }
   
   .bottom p a {
-    color: navy;
+    color: lightpink;
     font-weight: 600;
     text-decoration: underline;
     cursor: pointer;
   }
 
   .bottom p :hover{
-    color: rgb(32, 66, 150);
+    color: rgb(243, 72, 189);
   }

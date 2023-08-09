@@ -4,10 +4,15 @@ import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from "fire
 import InputControl from "../InputControl/InputControl";
 import { auth, updateUserDatabase } from "../../Firebase";
 import styles from "./Auth.module.css";
+import { IoMdArrowBack } from "react-icons/io";
 
 function Auth(props) {
   const isSignup = props.signup ? true : false;
   const navigate = useNavigate();
+
+  const handleBackClick = () => {
+    navigate("/")
+  }
 
   const [values, setValues] = useState({
     name: "",
@@ -67,10 +72,12 @@ function Auth(props) {
 
   return (
     <div className={styles.container}>
+      <div className={styles.back} onClick={handleBackClick}>
+        <IoMdArrowBack className={styles.backarrow} />
+        <span className={styles.backtext}>Back to Home</span>
+      </div>
+      
       <form className={styles.form} onSubmit={handleSubmission}>
-        <p className={styles.smallLink}>
-          <Link to="/">{"< Back to Home"}</Link>
-        </p>
         <p className={styles.heading}>{isSignup ? "Signup" : "Login"}</p>
 
         {isSignup && (
