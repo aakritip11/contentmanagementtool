@@ -3,16 +3,8 @@ import { getAuth } from "firebase/auth";
 import { doc, getFirestore, setDoc, getDoc, addDoc, collection, getDocs, query, where, deleteDoc } from "firebase/firestore";
 import { getDownloadURL, getStorage, ref, uploadBytesResumable } from "firebase/storage";
 
-const firebaseConfig = {
-  apiKey: "AIzaSyBleTefYIr8f2bRY3PXWry6yQxm0tPbvNM",
-  authDomain: "vigilant-agile.firebaseapp.com",
-  projectId: "vigilant-agile",
-  storageBucket: "vigilant-agile.appspot.com",
-  messagingSenderId: "199420034310",
-  appId: "1:199420034310:web:8b8e14685659378d54b287",
-  measurementId: "G-7YDBLHT61W"
-};
-  
+// add your firebase.config
+
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const db = getFirestore(app);
