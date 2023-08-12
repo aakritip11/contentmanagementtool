@@ -15,36 +15,24 @@ function ProjectForm(props) {
   const fileInputRef = useRef();
   const isEdit = props.isEdit ? true : false;
   const defaults = props.default;
+  const userDetails = props.userDetails;
 
-  const [values, setValues] = useState({
-    thumbnail: defaults?.thumbnail || "",
-    title: defaults?.title || "",
-    overview: defaults?.overview || "",
-    github: defaults?.github || "",
-    link: defaults?.link || "",
-    points: defaults?.points || ["", ""],
-  });
+  const initialValues = {
+    thumbnail: "",
+    title: "",
+    author: "",
+    overview: "",
+    link: "",
+    description: "",
+  };
+
+  const [values, setValues] = useState(
+    isEdit ? { ...defaults } : { ...initialValues }
+  );
   const [errorMessage, setErrorMessage] = useState("");
   const [imageUploadStarted, setImageUploadStarted] = useState(false);
   const [imageUploadProgress, setImageUploadProgress] = useState(0);
   const [submitButtonDisabled, setSetSubmitButtonDisabled] = useState(false);
-
-  const handlePointUpdate = (value, index) => {
-    const tempPoints = [...values.points];
-    tempPoints[index] = value;
-    setValues((prev) => ({ ...prev, points: tempPoints }));
-  };
-
-  const handleAddPoint = () => {
-    if (values.points.length > 4) return;
-    setValues((prev) => ({ ...prev, points: [...values.points, ""] }));
-  };
-
-  const handlePointDelete = (index) => {
-    const tempPoints = [...values.points];
-    tempPoints.splice(index, 1);
-    setValues((prev) => ({ ...prev, points: tempPoints }));
-  };
 
   const handleFileInputChange = (event) => {
     const file = event.target.files[0];
@@ -69,28 +57,23 @@ function ProjectForm(props) {
   };
 
   const validateForm = () => {
-    const actualPoints = values.points.filter((item) => item.trim());
-
     let isValid = true;
 
     if (!values.thumbnail) {
       isValid = false;
       setErrorMessage("Thumbnail for project is required");
-    } else if (!values.github) {
-      isValid = false;
-      setErrorMessage("Project's repository link required");
     } else if (!values.title) {
       isValid = false;
       setErrorMessage("Project's Title required");
+    } else if (!values.author) {
+      isValid = false;
+      setErrorMessage("Project's Author required");
     } else if (!values.overview) {
       isValid = false;
       setErrorMessage("Project's Overview required");
-    } else if (!actualPoints.length) {
+    } else if (!values.description) {
       isValid = false;
-      setErrorMessage("Description of Project is required");
-    } else if (actualPoints.length < 2) {
-      isValid = false;
-      setErrorMessage("Minimum 2 description points required");
+      setErrorMessage("Project's Description required");
     } else {
       setErrorMessage("");
     }
@@ -123,96 +106,81 @@ function ProjectForm(props) {
           onChange={handleFileInputChange}
         />
         <div className={styles.inner}>
-          <div className={styles.left}>
-            <div className={styles.image}>
-              <img
-                src={
-                  values.thumbnail ||
-                  "https://www.agora-gallery.com/advice/wp-content/uploads/2015/10/image-placeholder-300x200.png"
-                }
-                alt="Thumbnail"
-                onClick={() => fileInputRef.current.click()}
-              />
-              {imageUploadStarted && (
-                <p>
-                  <span>{imageUploadProgress.toFixed(2)}% Uploaded</span> 
-                </p>
-              )}
-            </div>
-
-            <InputControl
-              label="Github"
-              value={values.github}
-              placeholder="Project repository link"
-              onChange={(event) =>
-                setValues((prev) => ({
-                  ...prev,
-                  github: event.target.value,
-                }))
+          <div className={styles.image}>
+            <img
+              src={
+                values.thumbnail ||
+                "https://www.agora-gallery.com/advice/wp-content/uploads/2015/10/image-placeholder-300x200.png"
               }
+              alt="Thumbnail"
+              onClick={() => fileInputRef.current.click()}
             />
-            <InputControl
-              label="Deployed link"
-              placeholder="Project Deployed link"
-              value={values.link}
-              onChange={(event) =>
-                setValues((prev) => ({
-                  ...prev,
-                  link: event.target.value,
-                }))
-              }
-            />
+            {imageUploadStarted && (
+              <p>
+                <span>{imageUploadProgress.toFixed(2)}% Uploaded</span>
+              </p>
+            )}
           </div>
-          <div className={styles.right}>
-            <InputControl
-              label="Project Title"
-              placeholder="Enter project title"
-              value={values.title}
-              onChange={(event) =>
-                setValues((prev) => ({
-                  ...prev,
-                  title: event.target.value,
-                }))
-              }
-            />
-            <InputControl
-              label="Project Overview"
-              placeholder="Project's brief overview"
-              value={values.overview}
-              onChange={(event) =>
-                setValues((prev) => ({
-                  ...prev,
-                  overview: event.target.value,
-                }))
-              }
-            />
 
-            <div className={styles.description}>
-              <div className={styles.top}>
-                <p className={styles.title}>Project Description</p>
-                <p className={styles.link} onClick={handleAddPoint}>
-                  + Add point
-                </p>
-              </div>
-              <div className={styles.inputs}>
-                {values.points.map((item, index) => (
-                  <div className={styles.input} key={index}>
-                    <InputControl
-                      key={index}
-                      placeholder="Type something..."
-                      value={item}
-                      onChange={(event) =>
-                        handlePointUpdate(event.target.value, index)
-                      }
-                    />
-                    {index > 1 && (
-                      <X onClick={() => handlePointDelete(index)} />
-                    )}
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
+          <InputControl
+            label="Blog Title"
+            placeholder="Enter blog title"
+            value={values.title}
+            onChange={(event) =>
+              setValues((prev) => ({
+                ...prev,
+                title: event.target.value,
+              }))
+            }
+          />
+
+          <InputControl
+            label="Blog Author"
+            placeholder="Enter blog author"
+            value={values.author}
+            onChange={(event) =>
+              setValues((prev) => ({
+                ...prev,
+                author: event.target.value,
+              }))
+            }
+          />
+
+          <InputControl
+            label="Blog Overview"
+            placeholder="Blog's brief overview"
+            value={values.overview}
+            onChange={(event) =>
+              setValues((prev) => ({
+                ...prev,
+                overview: event.target.value,
+              }))
+            }
+          />
+
+          <InputControl
+            label="Blog Description"
+            placeholder="Blog's description"
+            value={values.description}
+            onChange={(event) =>
+              setValues((prev) => ({
+                ...prev,
+                description: event.target.value,
+              }))
+            }
+          />
+
+          <InputControl
+            label="Reference link"
+            placeholder="Enter any reference link"
+            value={values.link}
+            onChange={(event) =>
+              setValues((prev) => ({
+                ...prev,
+                link: event.target.value,
+              }))
+            }
+          />
         </div>
         <p className={styles.error}>{errorMessage}</p>
         <div className={styles.footer}>

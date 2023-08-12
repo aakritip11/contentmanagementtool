@@ -72,9 +72,11 @@ function Auth(props) {
 
   return (
     <div className={styles.container}>
-      <div className={styles.back} onClick={handleBackClick}>
-        <IoMdArrowBack className={styles.backarrow} />
-        <span className={styles.backtext}>Back to Home</span>
+      <div className={styles.topheading}>
+        <span className={styles.backtext} onClick={handleBackClick}>
+          <IoMdArrowBack className={styles.backarrow}/>{" "}Back to Home
+        </span>
+        <span className={styles.backtext}>Vibrant Agora</span>
       </div>
       
       <form className={styles.form} onSubmit={handleSubmission}>

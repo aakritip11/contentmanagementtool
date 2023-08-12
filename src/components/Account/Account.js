@@ -1,7 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import { signOut } from "firebase/auth";
-import { Camera, LogOut, Edit2, Trash, GitHub } from "react-feather";
-import { FaLinkedin } from "react-icons/fa";
+import { Camera, LogOut, Edit2, Trash } from "react-feather";
 import { Link, Navigate } from "react-router-dom";
 import InputControl from "../InputControl/InputControl";
 import Spinner from "../Spinner/Spinner";
@@ -9,6 +8,7 @@ import ProjectForm from "./ProjectForm/ProjectForm";
 import { auth, uploadImage, updateUserDatabase, getAllProjectsForUser, deleteProject } from "../../Firebase";
 import styles from "./Account.module.css";
 import pimg from "../../assets/pimg.png";
+import { ExternalLink } from "react-feather/dist";
 
 function Account(props) {
   const userDetails = props.userDetails;
@@ -24,8 +24,9 @@ function Account(props) {
   );
   const [userProfileValues, setUserProfileValues] = useState({
     name: userDetails.name || "",
+    email: userDetails.email || "",
     designation: userDetails.designation || "",
-    github: userDetails.github || "",
+    phone: userDetails.phone || "",
     linkedin: userDetails.linkedin || "",
   });
   const [showSaveDetailsButton, setShowSaveDetailsButton] = useState(false);
@@ -34,6 +35,7 @@ function Account(props) {
   const [showProjectForm, setShowProjectForm] = useState(false);
   const [projectsLoaded, setProjectsLoaded] = useState(false);
   const [projects, setProjects] = useState([]);
+  const [projectStates, setProjectStates] = useState({});
   const [isEditProjectModal, setIsEditProjectModal] = useState(false);
   const [editProject, setEditProject] = useState({});
 
@@ -131,15 +133,19 @@ function Account(props) {
           onSubmission={fetchAllProjects}
           onClose={() => setShowProjectForm(false)}
           uid={userDetails.uid}
+          name={userDetails.name}
           isEdit={isEditProjectModal}
-          default={editProject}
+          default={isEditProjectModal ? editProject : undefined}  // Pass undefined when adding new blog
         />
       )}
       <div className={styles.header}>
         <p className={styles.heading}>
           <img src = {pimg}/> <span>{userProfileValues.name}</span>
         </p>
-
+        <p className={styles.heading}>
+          <span className={styles.toptext}>Vibrant Agora</span>
+        </p>
+        
         <div className={styles.logout} onClick={handleLogout}>
           <LogOut /> Logout
         </div>
@@ -171,33 +177,35 @@ function Account(props) {
             )}
           </div>
           <div className={styles.right}>
-            <div className={styles.row}>
-              <InputControl
+          <div className={styles.row}>
+          <InputControl
                 label="Name"
                 placeholder="Enter your Name"
                 value={userProfileValues.name}
                 onChange={(event) => handleInputChange(event, "name")}
-              />
-              <InputControl
-                label="Title"
+            />  
+            <InputControl
+                label="Designation"
                 placeholder="eg. Full stack developer"
                 value={userProfileValues.designation}
                 onChange={(event) => handleInputChange(event, "designation")}
               />
-            </div>
+              </div>
+            
             <div className={styles.row}>
               <InputControl
-                label="Github"
-                placeholder="Enter your github link"
-                value={userProfileValues.github}
-                onChange={(event) => handleInputChange(event, "github")}
+                label="Email"
+                placeholder="Enter your email"
+                value={userProfileValues.email}
+                onChange={(event) => handleInputChange(event, "email")}
               />
               <InputControl
-                label="Linkedin"
-                placeholder="Enter your linkedin link"
-                value={userProfileValues.linkedin}
-                onChange={(event) => handleInputChange(event, "linkedin")}
+                label="Phone"
+                placeholder="Enter your phone number"
+                value={userProfileValues.phone}
+                onChange={(event) => handleInputChange(event, "phone")}
               />
+              
             </div>
             <div className={styles.footer}>
               <p className={styles.error}>{errorMessage}</p>
@@ -219,9 +227,9 @@ function Account(props) {
 
       <div className={styles.section}>
         <div className={styles.projectsHeader}>
-          <div className={styles.title}>Your Projects</div>
+          <div className={styles.title}>Your Blogs</div>
           <button className={styles.button} onClick={() => setShowProjectForm(true)}>
-            Add Project
+            Add Blog
           </button>
         </div>
 
@@ -230,26 +238,51 @@ function Account(props) {
             projects.length > 0 ? (
               projects.map((item, index) => (
                 <div className={styles.project} key={item.title + index}>
+                  <div className={styles.content}>
+                  <p className={styles.image}><img
+                src={
+                  item?.thumbnail ||
+                  "https://www.agora-gallery.com/advice/wp-content/uploads/2015/10/image-placeholder-300x200.png"
+                }
+                alt="Project thumbnail"
+              /></p>
+                <div className={styles.details}>
                   <p className={styles.title}>{item.title}</p>
-
+                  <p className={styles.author}>~{item.author}</p>
+                  <p className={styles.overview}>{item.overview}</p>
+                  <p className={styles.description}>{projectStates[index] && item.description.length > 500
+                          ? item.description
+                          : `${item.description.slice(0, 500)}`}
+                        {item.description.length > 500 && (
+                          <span
+                            className={styles.readMore}
+                            onClick={() =>
+                              setProjectStates({
+                                ...projectStates,
+                                [index]: !projectStates[index]
+                              })
+                            }
+                          >
+                            {projectStates[index] ? "Read Less" : "....Read More"}
+                          </span>
+                        )}</p>
+                </div>
+                </div>
+                <div className={styles.icons}>
                   <div className={styles.links}>
                     <Edit2 onClick={() => handleEditClick(item)} />
                     <Trash onClick={() => handleDeletion(item.pid)} />
-                    <Link target="_blank" to={`//${item.github}`}>
-                      <GitHub />
-                    </Link>
-                    {item.link ? (
+                    {item.link && (
                       <Link target="_blank" to={`//${item.link}`}>
-                        <FaLinkedin />
+                        <ExternalLink />
                       </Link>
-                    ) : (
-                      ""
                     )}
+                  </div>
                   </div>
                 </div>
               ))
             ) : (
-              <p>No projects found</p>
+              <p>No blogs found</p>
             )
           ) : (
             <Spinner />
