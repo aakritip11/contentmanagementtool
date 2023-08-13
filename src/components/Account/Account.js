@@ -9,6 +9,8 @@ import { auth, uploadImage, updateUserDatabase, getAllProjectsForUser, deletePro
 import styles from "./Account.module.css";
 import pimg from "../../assets/pimg.png";
 import { ExternalLink } from "react-feather/dist";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 function Account(props) {
   const userDetails = props.userDetails;
@@ -16,12 +18,12 @@ function Account(props) {
   const imagePicker = useRef();
 
   const [progress, setProgress] = useState(0);
-  const [profileImageUploadStarted, setProfileImageUploadStarted] =
-    useState(false);
+  const [profileImageUploadStarted, setProfileImageUploadStarted] = useState(false);
   const [profileImageUrl, setProfileImageUrl] = useState(
     userDetails.profileImage ||
       "https://th.bing.com/th/id/OIP.S_q99pD0qjlxGZ7lmcSVlAAAAA?pid=ImgDet&rs=1"
   );
+
   const [userProfileValues, setUserProfileValues] = useState({
     name: userDetails.name || "",
     email: userDetails.email || "",
@@ -29,6 +31,7 @@ function Account(props) {
     phone: userDetails.phone || "",
     linkedin: userDetails.linkedin || "",
   });
+  
   const [showSaveDetailsButton, setShowSaveDetailsButton] = useState(false);
   const [saveButtonDisabled, setSaveButtonDisabled] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
@@ -126,6 +129,11 @@ function Account(props) {
     fetchAllProjects();
   }, []);
 
+  useEffect(() => {
+    AOS.init();
+  }, []);
+
+
   return isAuthenticated ? (
     <div className={styles.container}>
       {showProjectForm && (
@@ -135,18 +143,18 @@ function Account(props) {
           uid={userDetails.uid}
           name={userDetails.name}
           isEdit={isEditProjectModal}
-          default={isEditProjectModal ? editProject : undefined}  // Pass undefined when adding new blog
+          default={isEditProjectModal ? editProject : undefined} 
         />
       )}
       <div className={styles.header}>
-        <p className={styles.heading}>
+        <p className={styles.heading} data-aos="fade-left" data-aos-duration="1000">
           <img src = {pimg}/> <span>{userProfileValues.name}</span>
         </p>
         <p className={styles.heading}>
-          <span className={styles.toptext}>Vibrant Agora</span>
+          <span className={styles.toptext} data-aos="fade-up" data-aos-duration="1000">Vibrant Agora</span>
         </p>
         
-        <div className={styles.logout} onClick={handleLogout}>
+        <div className={styles.logout} onClick={handleLogout} data-aos="fade-right" data-aos-duration="1000">
           <LogOut /> Logout
         </div>
       </div>
@@ -157,10 +165,10 @@ function Account(props) {
         onChange={handleImageChange}
       />
       <div className={styles.section}>
-        <div className={styles.title}>Your profile</div>
+        <div className={styles.title} data-aos="fade-right" data-aos-duration="1000">Your profile</div>
         <div className={styles.profile}>
           <div className={styles.left}>
-            <div className={styles.image}>
+            <div className={styles.image} data-aos="fade-left" data-aos-duration="1000">
               <img src={profileImageUrl} alt="Profile image" />
               <div className={styles.camera} onClick={handleCameraClick}>
                 <Camera />
@@ -176,7 +184,7 @@ function Account(props) {
               ""
             )}
           </div>
-          <div className={styles.right}>
+          <div className={styles.right} data-aos="fade-right" data-aos-duration="1000">
           <div className={styles.row}>
           <InputControl
                 label="Name"
@@ -222,13 +230,11 @@ function Account(props) {
           </div>
         </div>
       </div>
-
       <hr />
-
       <div className={styles.section}>
         <div className={styles.projectsHeader}>
-          <div className={styles.title}>Your Blogs</div>
-          <button className={styles.button} onClick={() => setShowProjectForm(true)}>
+          <div className={styles.title} data-aos="fade-right" data-aos-duration="1000">Your Blogs</div>
+          <button className={styles.button} onClick={() => setShowProjectForm(true)} data-aos="fade-up" data-aos-duration="1000">
             Add Blog
           </button>
         </div>
@@ -246,7 +252,7 @@ function Account(props) {
                 }
                 alt="Project thumbnail"
               /></p>
-                <div className={styles.details}>
+                <div className={styles.details} data-aos="fade-left" data-aos-duration="1000">
                   <p className={styles.title}>{item.title}</p>
                   <p className={styles.author}>~{item.author}</p>
                   <p className={styles.overview}>{item.overview}</p>

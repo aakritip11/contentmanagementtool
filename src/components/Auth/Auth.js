@@ -1,10 +1,12 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
 import InputControl from "../InputControl/InputControl";
 import { auth, updateUserDatabase } from "../../Firebase";
 import styles from "./Auth.module.css";
 import { IoMdArrowBack } from "react-icons/io";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 function Auth(props) {
   const isSignup = props.signup ? true : false;
@@ -70,16 +72,20 @@ function Auth(props) {
     else handleLogin();
   };
 
+  useEffect(() => {
+    AOS.init();
+  }, []);
+
   return (
     <div className={styles.container}>
       <div className={styles.topheading}>
-        <span className={styles.backtext} onClick={handleBackClick}>
+        <span className={styles.backtext} onClick={handleBackClick} data-aos="fade-left" data-aos-duration="1000">
           <IoMdArrowBack className={styles.backarrow}/>{" "}Back to Home
         </span>
-        <span className={styles.backtext}>Vibrant Agora</span>
+        <span className={styles.hometext} data-aos="fade-up" data-aos-duration="1000">Vibrant Agora</span>
       </div>
       
-      <form className={styles.form} onSubmit={handleSubmission}>
+      <form className={styles.form} onSubmit={handleSubmission} data-aos="fade-up" data-aos-duration="1000">
         <p className={styles.heading}>{isSignup ? "Signup" : "Login"}</p>
 
         {isSignup && (
