@@ -12,10 +12,11 @@
   
   .topheading{
     position: absolute;
-    background-image: url("../../assets/titlebackground.jpg");
+    /* background-image: url("../../assets/titlebackground.jpg");
     background-size: cover; 
     background-repeat: no-repeat;
-    background-position: center;
+    background-position: center; */
+    background-color: rgb(1, 30, 30);
     width: 100%;
     height: 10%;
     top: 0;
@@ -26,11 +27,11 @@
     padding-bottom: 7px;
     padding-left: 1%;
     padding-right: 9%;
-    color: lightpink;
+    color: white;
   }
 
   .topheading :hover{
-    color: rgb(243, 72, 189);
+    color: rgb(109, 192, 139);
   }
   
   .backarrow {
@@ -51,11 +52,12 @@
   }
 
   .form {
-    background-image: url("../../assets/conf1.jpg"); 
+    /* background-image: url("../../assets/conf.jpg"); 
     background-size: cover;
-    background-position: center;
-    color: rgb(243, 72, 189);
-    box-shadow: 3px 3px 9px lightpink;
+    background-position: center; */
+    background-color: rgb(1, 30, 30);
+    color: white;
+    box-shadow: 3px 3px 9px white;
     border-radius: 5px;
     padding: 30px;
     width: fit-content;
@@ -73,7 +75,7 @@
   }
   
   .smallLink a {
-    color: lightpink;
+    color: white;
     font-weight: bold;
     cursor: pointer;
     font-size: 0.95rem;
@@ -81,7 +83,7 @@
   }
 
   .smallLink :hover{
-    color: rgb(243, 72, 189);
+    color: rgb(109, 192, 139);
   }
   
   .form .heading {
@@ -93,8 +95,8 @@
     border: none;
     outline: none;
     padding: 8px 16px;
-    background-color: lightpink;
-    color: navy;
+    background-color: white;
+    color: rgb(1, 30, 30);
     border-radius: 5px;
     width: 100%;
     text-align: center;
@@ -109,7 +111,7 @@
   }
   
   .form button:hover {
-    background-color: rgb(243, 72, 189);
+    background-color: rgb(109, 192, 139);
   }
   
   .form button:active {
@@ -117,13 +119,13 @@
   }
   
   .form button:disabled {
-    background-color: rgb(243, 72, 189) !important;
+    background-color: rgb(109, 192, 139) !important;
   }
   
   .form .error {
     font-size: 0.875rem;
     font-weight: bold;
-    color: rgb(243, 72, 189);
+    color: rgb(109, 192, 139);
     width: 100%;
     text-align: center;
   }
@@ -136,12 +138,12 @@
   }
   
   .bottom p a {
-    color: lightpink;
+    color: white;
     font-weight: 600;
     text-decoration: underline;
     cursor: pointer;
   }
 
   .bottom p :hover{
-    color: rgb(243, 72, 189);
+    color: rgb(109, 192, 139);
   }

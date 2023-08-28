@@ -11,10 +11,11 @@
   }
   
   .header {
-    background-image: url("../../assets/titlebackground.jpg");
+    /* background-image: url("../../assets/titlebackground.jpg");
     background-size: cover; 
     background-repeat: no-repeat;
-    background-position: center;
+    background-position: center; */
+    background-color: rgb(1, 30, 30);
     width: 100%;
     display: flex;
     justify-content: space-between;
@@ -31,7 +32,7 @@
   }
 
   .header .heading span {
-    color: lightpink;
+    color: white;
     font-size: 1.8rem;
     text-transform: capitalize;
     padding-left: 1.2%;
@@ -42,7 +43,7 @@
     align-items: center;
     gap: 5px;
     cursor: pointer;
-    color: lightpink;
+    color: white;
     font-weight: 700;
     font-size: 1.2rem;
     transition: 200ms;
@@ -57,7 +58,7 @@
   
   .header .logout:hover,
   .header .logout:hover svg {
-    color: rgb(243, 72, 189);
+    color: rgb(109, 192, 139);
   }
   
   .container .section {
@@ -65,7 +66,7 @@
     flex-direction: column;
     gap: 20px;
     padding: 20px 30px;
-    color: lightpink;
+    color: rgb(1, 30, 30);
   }
   
   .section .title {
@@ -98,8 +99,8 @@
     height: 200px;
     width: 200px;
     border-radius: 50%;
-    box-shadow: 3px 3px 9px lightpink;
-    border: 1px solid lightpink;
+    box-shadow: 3px 3px 9px rgb(109, 192, 139);
+    border: 1px solid rgb(109, 192, 139);
   }
   
   .profile .left .image img {
@@ -113,7 +114,7 @@
     position: absolute;
     right: 5px;
     top: 5px;
-    background-color: lightpink;
+    background-color: white;
     border-radius: 50%;
     padding: 8px;
     z-index: 10;
@@ -122,14 +123,14 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 1px solid #eee;
+    border: 1px solid white;
     cursor: pointer;
   }
   
   .profile .left .image .camera svg {
     height: 22px;
     width: 22px;
-    color: navy;
+    color: rgb(1, 30, 30);
   }
   
   .profile .right {
@@ -137,6 +138,12 @@
     display: flex;
     flex-direction: column;
     gap: 30px;
+    background-color: rgb(1, 30, 30);
+    padding: 2% 2%;
+    border-radius: 7px;
+    box-shadow: 3px 3px 9px rgb(1, 30, 30);
+    border: 1px solid rgb(1, 30, 30);
+    opacity: inherit;
   }
   
   .profile .right .row {
@@ -159,8 +166,8 @@
     border: none;
     outline: none;
     padding: 10px 16px;
-    background-color: lightpink;
-    color: navy;
+    background-color: white;
+    color: rgb(1, 30, 30);
     border-radius: 5px;
     width: fit-content;
     font-size: 0.9rem;
@@ -173,14 +180,14 @@
   }
 
   .button:hover{
-    background-color: rgb(243, 72, 189);
+    background-color: rgb(109, 192, 139);
   }
   
   .footer .error {
     flex: 1;
     font-size: 0.875rem;
     font-weight: bold;
-    color: rgb(243, 72, 189);
+    color: rgb(109, 192, 139);
     width: 100%;
     text-align: center;
   }
@@ -195,9 +202,9 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    background-color: rgb(3, 3, 39);
-    border: 3px solid lightblue;
-    box-shadow: 3px 3px 9px lightskyblue;
+    background-color: white;
+    border: 3px solid rgb(1, 30, 30);
+    box-shadow: 3px 3px 9px rgb(1, 30, 30);
     padding: 10px;
     gap: 10px; 
   }
@@ -251,13 +258,12 @@
   }
 
   .readMore{
-    color: lightpink;
+    color: rgb(1, 30, 30);
     cursor: pointer;
     padding-left: 3px;
   }
 
   .readMore:hover{
-    color: rgb(243, 72, 189);
     text-decoration: underline;
   }
 
@@ -275,11 +281,11 @@
   .project .links svg {
     height: 22px;
     width: 22px;
-    color: lightpink;
+    color: rgb(1, 30, 30);
     transition: 200ms;
     cursor: pointer;
   }
   
   .project .links svg:hover {
-    color: rgb(243, 72, 189);
+    color: rgb(109, 192, 139);
   }

@@ -6,13 +6,13 @@
   
   .container label {
     font-weight: 700;
-    color:lightpink;
+    color:white;
     font-size: 1.2rem;
   }
   
   .container input {
     width: 100%;
-    border: 1px solid lightpink;
+    border: 1px solid white;
     border-radius: 5px;
     padding: 8px 10px;
     outline: none;
@@ -22,11 +22,11 @@
   }
   
   .container input:hover {
-    border: 1px solid lightpink;
+    border: 1px solid rgb(109, 192, 139);
   }
   
   .container input:focus {
-    border: 1px solid rgb(243, 72, 189);
+    border: 1px solid rgb(109, 192, 139);
   }
   
   .inputContainer {
@@ -34,10 +34,10 @@
   }
   
   .inputContainer:hover .icon svg {
-    color: rgb(243, 72, 189);
+    color: rgb(109, 192, 139);
   }
   .inputContainer:focus-within .icon svg {
-    color: rgb(243, 72, 189);
+    color: rgb(109, 192, 139);
   }
   .inputContainer .icon {
     position: absolute;
@@ -52,5 +52,5 @@
   .inputContainer .icon svg {
     height: 15px;
     width: 15px;
-    color: lightpink;
+    color: white;
   }

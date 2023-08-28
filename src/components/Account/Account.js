@@ -21,7 +21,7 @@ function Account(props) {
   const [profileImageUploadStarted, setProfileImageUploadStarted] = useState(false);
   const [profileImageUrl, setProfileImageUrl] = useState(
     userDetails.profileImage ||
-      "https://th.bing.com/th/id/OIP.S_q99pD0qjlxGZ7lmcSVlAAAAA?pid=ImgDet&rs=1"
+      "https://th.bing.com/th/id/OIP.uisWlf9tnHjsi09idcBagwAAAA?pid=ImgDet&rs=1"
   );
 
   const [userProfileValues, setUserProfileValues] = useState({

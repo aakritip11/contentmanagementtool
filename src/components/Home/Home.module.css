@@ -4,21 +4,23 @@
   width: 100%;
   background-image: url("../../assets/conf.jpg"); 
   background-size: cover;
-  background-position: center;
+  background-position-y: center;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  border: 11px ridge rgb(224, 78, 202);
+  border: 15px ridge rgb(5, 24, 15);
+  overflow-x: hidden;
 }
   
   .header {
     padding: 30px;
-    padding-top: 7%;
+    background-color: rgb(1, 30, 30);
+    margin: 0.5%;
     display: flex;
     flex-direction: row;
-    justify-content: flex-start;
-    width: 100%;
+    justify-content: space-between;
+    width: 99%;
   }
   
   .left {
@@ -29,15 +31,10 @@
   }
   
   .left .heading {
-    padding-bottom: 3%;
     font-weight: 700;
-    color: lightpink;
-    padding-left: 2%;
-    padding-right: 2%;
-    background-color: rgb(3, 3, 39);
-    box-shadow: 7px 7px 5px rgb(224, 78, 202);
-    margin-bottom: 2%;
-    font-size: 7rem;
+    color:  white;
+    width: 100%;
+    font-size: 3rem;
   }
   
   .left .subHeading {
@@ -46,21 +43,11 @@
     line-height: 2rem;
     color: white;
     font-style: italic;
-    border: 5px solid lightskyblue;
-    box-shadow: 7px 7px 7px lightskyblue;
-    padding: 2%;
-    border-radius: 5px;
-    background-image: url("../../assets/conf1.jpg"); 
-    background-size: cover;
-    background-position: center;
   }
 
   .blogtitleWrapper {
-    background-image: url("../../assets/titlebackground.jpg");
-    background-size: cover; 
-    background-repeat: no-repeat;
-    background-position: center;
-    width: 100%;
+    /* background-color: white;
+    width: 99%; */
     text-align: center; 
     padding: 20px;
     margin-top: 7%; 
@@ -68,27 +55,18 @@
   }
   
   .blogtitle {
-    color: lightpink;
+    color: rgb(1, 30, 30);
     font-size: 1.8rem;
     font-weight: 700;
     text-decoration: underline;
-  }
-
-  .start{
-    padding: 30px;
-    padding-top: 7%;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    width: 100%;
   }
 
   .down button {
     border: none;
     outline: none;
     padding: 10px 16px;
-    background-color:lightpink;
-    color: navy;
+    background-color:white;
+    color: rgb(1, 30, 30);
     border-radius: 5px;
     width: fit-content;
     font-size: 1.1rem;
@@ -101,7 +79,7 @@
   }
   
   .down button:hover {
-    background-color: rgb(243, 72, 189);
+    background-color: rgb(109, 192, 139);
   }
   
   .down button:active {

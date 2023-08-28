@@ -2,7 +2,7 @@
     display: flex;
     flex-direction: column;
     gap: 20px;
-    color: lightpink;
+    color: rgb(1, 30, 30);
     width: 96%;
 }
 
@@ -10,9 +10,9 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    background-color: rgb(3, 3, 39);
-    border: 3px solid lightblue;
-    box-shadow: 3px 3px 9px lightskyblue;
+    background-color: white;
+    border: 3px solid rgb(1, 30, 30);
+    box-shadow: 3px 3px 9px rgb(1, 30, 30);
     padding: 10px;
     gap: 10px;
 }
@@ -59,12 +59,11 @@
 }
 
 .readMore {
-    color: lightpink;
+    color: rgb(1, 30, 30);
     cursor: pointer;
     padding-left: 3px;
 }
 
 .readMore:hover {
-    color: rgb(243, 72, 189);
     text-decoration: underline;
 }
